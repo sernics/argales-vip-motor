@@ -1,39 +1,40 @@
-# Argales VIP Motor
+# Argales VIP Motor · Propuestas de diseño
 
-Primera propuesta de renovación visual para el taller Argales VIP Motor, Valladolid.
+Tres versiones independientes de una landing para Argales VIP Motor (Valladolid), reunidas en un comparador responsive.
 
-## Ver la web
-
-Sin dependencias ni compilación:
+## Ver y comparar
 
 ```sh
 python3 -m http.server 4173 --directory dist
 ```
 
-Abre http://localhost:4173. Todo el sitio servido está en `dist/`.
+- `http://localhost:4173/`: selector de propuestas y vista móvil.
+- `/version-1/`: propuesta anterior guardada, con blanco cálido y rojo vino.
+- `/editorial/`: propuesta editorial en crema y burdeos, con tipografía serif y portada fotográfica.
+- `/precision/`: propuesta técnica en blanco y azul, con portada panorámica.
 
-## Incluye
+La versión anterior también se conserva en la etiqueta local `version-1-guardada`; su código original y recursos se han exportado a un ZIP independiente. La copia en `dist/version-1/` solo cambia las rutas relativas para conservar el mismo aspecto y funcionamiento dentro de la carpeta.
 
-- Landing responsive, navegación móvil, servicios, taller, proceso y preguntas frecuentes.
-- Solicitud de cita accesible mediante diálogo nativo y formulario validado.
-- El formulario prepara un mensaje de WhatsApp; el visitante lo envía y el taller confirma disponibilidad. No hay reservas automáticas ni backend.
-- Llamadas, correo y ubicación enlazados a los datos publicados por el negocio.
-- Fuentes e imágenes locales. Sin analítica, cookies de seguimiento ni almacenamiento de datos del formulario.
+## Nuevas funciones
 
-## Identidad y fuentes
+Las dos nuevas propuestas comparten navegación móvil, explorador de seis servicios con navegación de teclado, orientador de consultas, lista interactiva para preparar la visita, galería ampliable, preguntas frecuentes y solicitud de cita por WhatsApp.
 
-Dirección visual: blanco cálido, grafito y rojo vino, tipografía Manrope y logotipo original. Composición amplia y trato cercano, sin flechas diagonales ni cifras o reseñas inventadas.
+El orientador ayuda a preparar el contacto y no diagnostica averías. El formulario prepara un mensaje; el visitante decide enviarlo y el taller confirma disponibilidad. Sin backend, reservas automáticas, analítica ni almacenamiento persistente de datos personales.
 
-Datos e imágenes proceden de https://argalesvipmotor.es/. Las imágenes se reutilizan exclusivamente en esta propuesta del sitio del mismo negocio y requieren los derechos pertinentes para otros usos. No se añaden reseñas, puntuaciones, cifras o testimonios ficticios. La foto general procede de la web original y debe confirmarse con el negocio antes de su publicación comercial definitiva.
+## Recursos y datos
 
-Tipografías Manrope y Barlow Condensed, distribuidas bajo SIL Open Font License; licencias en `dist/assets/`.
+Datos del negocio e imágenes de servicios: https://argalesvipmotor.es/. No se añaden reseñas, puntuaciones o cifras ficticias. Validar con el negocio los datos y derechos antes de sustituir la web comercial. Las páginas legales enlazan a la web oficial existente.
 
-## Estructura
+La portada de las dos propuestas nuevas es una fotografía conceptual generada con la herramienta integrada ImageGen. Se identifica como conceptual en la página; no representa instalaciones ni vehículos del taller. El recurso se encuentra en `dist/assets/campaign.png`. Prompt completo en `ASSET-NOTES.md`.
 
-- `dist/index.html`: contenido y metadatos.
-- `dist/styles.css`: diseño y adaptaciones responsive.
-- `dist/app.js`: menú y solicitud de cita.
-- `dist/assets/`: fotografías, fuentes e icono.
-- `.openai/hosting.json`: configuración de la vista previa privada en Sites.
+Fuentes locales Manrope, Barlow Condensed y DM Serif Display bajo SIL Open Font License; licencias en `dist/assets/`.
 
-Antes de sustituir la web oficial: validar datos, textos, derechos de imagen y páginas legales con el taller. Los enlaces legales llevan a la web oficial existente.
+## Archivos
+
+- `dist/index.html`, `compare.css`, `compare.js`: selector de propuestas.
+- `dist/version-1/`: versión anterior preservada.
+- `dist/editorial/` y `dist/precision/`: nuevas landings.
+- `dist/variants/shared.css`, `interactions.js`: componentes y estilos de las nuevas versiones.
+- `dist/app.js`: menú y diálogo de solicitud, reutilizados por las versiones nuevas.
+- `dist/assets/`: imágenes, tipografías e icono.
+- `.openai/hosting.json`: configuración de publicación privada en Sites.
